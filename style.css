@@ -1,0 +1,239 @@
+/* Dynamic Theme & Contrast Engine */
+:root {
+  --bg-gradient: linear-gradient(135deg, #F0F8FF 0%, #E2F0FE 50%, #F5FAFF 100%);
+  --orb-1: rgba(186, 230, 253, 0.7);
+  --orb-2: rgba(191, 219, 254, 0.6);
+
+  --primary: #0284C7;
+  --primary-hover: #0369A1;
+  --primary-light: #E0F2FE;
+  --primary-border: #BAE6FD;
+  --primary-glow: rgba(2, 132, 199, 0.25);
+
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: #E2E8F0;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+
+  --text-main: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+
+  --btn-secondary-bg: #FFFFFF;
+  --btn-secondary-border: #CBD5E1;
+  --btn-secondary-text: #0F172A;
+
+  --pill-unselected-bg: #FFFFFF;
+  --pill-unselected-border: #CBD5E1;
+  --pill-unselected-text: #0F172A;
+
+  --time-badge-bg: #F0F9FF;
+  --time-badge-border: #BAE6FD;
+  --time-badge-text: #0369A1;
+
+  --dur-badge-bg: #F1F5F9;
+  --dur-badge-text: #475569;
+}
+
+[data-theme="dark"] {
+  --bg-gradient: linear-gradient(135deg, #090E17 0%, #0F172A 50%, #0B1120 100%);
+  --glass-bg: rgba(15, 23, 42, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-bg: #1E293B;
+  --card-border: #334155;
+
+  --text-main: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  --btn-secondary-bg: #1E293B;
+  --btn-secondary-border: #334155;
+  --btn-secondary-text: #F8FAFC;
+
+  --pill-unselected-bg: #1E293B;
+  --pill-unselected-border: #334155;
+  --pill-unselected-text: #F8FAFC;
+
+  --time-badge-bg: rgba(56, 189, 248, 0.12);
+  --time-badge-border: rgba(56, 189, 248, 0.3);
+  --time-badge-text: #38BDF8;
+
+  --dur-badge-bg: rgba(30, 41, 59, 0.8);
+  --dur-badge-text: #94A3B8;
+}
+
+/* 7 Luxury Ambiance Presets */
+[data-ambiance="glacier"] {
+  --primary: #0284C7;
+  --primary-hover: #0369A1;
+  --primary-light: rgba(2, 132, 199, 0.12);
+  --primary-border: #BAE6FD;
+  --primary-glow: rgba(2, 132, 199, 0.25);
+  --orb-1: rgba(186, 230, 253, 0.65);
+  --orb-2: rgba(191, 219, 254, 0.55);
+}
+[data-ambiance="emerald"] {
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-light: rgba(5, 150, 105, 0.12);
+  --primary-border: #A7F3D0;
+  --primary-glow: rgba(5, 150, 105, 0.25);
+  --orb-1: rgba(167, 243, 208, 0.65);
+  --orb-2: rgba(209, 250, 229, 0.55);
+}
+[data-ambiance="amethyst"] {
+  --primary: #7C3AED;
+  --primary-hover: #6D28D9;
+  --primary-light: rgba(124, 58, 237, 0.12);
+  --primary-border: #DDD6FE;
+  --primary-glow: rgba(124, 58, 237, 0.25);
+  --orb-1: rgba(221, 214, 254, 0.65);
+  --orb-2: rgba(237, 233, 254, 0.55);
+}
+[data-ambiance="coral"] {
+  --primary: #E11D48;
+  --primary-hover: #BE123C;
+  --primary-light: rgba(225, 29, 72, 0.12);
+  --primary-border: #FECDD3;
+  --primary-glow: rgba(225, 29, 72, 0.25);
+  --orb-1: rgba(254, 205, 211, 0.65);
+  --orb-2: rgba(255, 228, 230, 0.55);
+}
+[data-ambiance="amber"] {
+  --primary: #D97706;
+  --primary-hover: #B45309;
+  --primary-light: rgba(217, 119, 6, 0.12);
+  --primary-border: #FDE68A;
+  --primary-glow: rgba(217, 119, 6, 0.25);
+  --orb-1: rgba(253, 230, 138, 0.65);
+  --orb-2: rgba(254, 243, 199, 0.55);
+}
+[data-ambiance="sage"] {
+  --primary: #0D9488;
+  --primary-hover: #0F766E;
+  --primary-light: rgba(13, 148, 136, 0.12);
+  --primary-border: #99F6E8;
+  --primary-glow: rgba(13, 148, 136, 0.25);
+  --orb-1: rgba(153, 246, 228, 0.65);
+  --orb-2: rgba(204, 251, 241, 0.55);
+}
+[data-ambiance="platinum"] {
+  --primary: #475569;
+  --primary-hover: #334155;
+  --primary-light: rgba(71, 85, 105, 0.12);
+  --primary-border: #CBD5E1;
+  --primary-glow: rgba(71, 85, 105, 0.25);
+  --orb-1: rgba(203, 213, 225, 0.65);
+  --orb-2: rgba(241, 245, 249, 0.55);
+}
+
+body {
+  background: var(--bg-gradient);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.font-display { font-family: 'Outfit', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.font-quote { font-family: 'Playfair Display', serif; }
+
+.crystal-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 16px 36px -12px var(--primary-glow);
+}
+
+.task-card-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+
+.theme-btn-secondary {
+  background: var(--btn-secondary-bg);
+  border: 1px solid var(--btn-secondary-border);
+  color: var(--btn-secondary-text);
+}
+
+.date-pill-unselected {
+  background: var(--pill-unselected-bg);
+  border: 1px solid var(--pill-unselected-border);
+  color: var(--pill-unselected-text);
+}
+
+.crystal-btn {
+  background: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px -4px var(--primary-glow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.crystal-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -4px var(--primary-glow);
+}
+
+.crystal-badge {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+}
+
+.crystal-input {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+}
+.crystal-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.active-task-pulse {
+  box-shadow: 0 0 0 2px var(--primary), 0 10px 25px -5px var(--primary-glow);
+}
+
+/* Hover-Expandable Ambiance Palette */
+.ambiance-picker {
+  position: relative;
+}
+.ambiance-dropdown {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px) scale(0.95);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ambiance-picker:hover .ambiance-dropdown,
+.ambiance-picker:focus-within .ambiance-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Quote Highlight Frame */
+.quote-highlight-box {
+  background: linear-gradient(135deg, var(--primary-light), transparent);
+  border-left: 3px solid var(--primary);
+}
+
+.custom-scroll::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary-border);
+  border-radius: 9999px;
+}
+
+@keyframes pulseSoft {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.06); opacity: 0.85; }
+}
+.animate-ambient {
+  animation: pulseSoft 9s ease-in-out infinite;
+}
