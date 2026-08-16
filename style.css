@@ -6,8 +6,8 @@
 
   --primary: #0284C7;
   --primary-hover: #0369A1;
-  --primary-light: #E0F2FE;
-  --primary-border: #BAE6FD;
+  --primary-light: rgba(2, 132, 199, 0.12);
+  --primary-border: rgba(2, 132, 199, 0.28);
   --primary-glow: rgba(2, 132, 199, 0.25);
 
   --glass-bg: rgba(255, 255, 255, 0.95);
@@ -27,12 +27,14 @@
   --pill-unselected-border: #CBD5E1;
   --pill-unselected-text: #0F172A;
 
-  --time-badge-bg: #F0F9FF;
-  --time-badge-border: #BAE6FD;
-  --time-badge-text: #0369A1;
+  --time-badge-bg: var(--primary-light);
+  --time-badge-border: var(--primary-border);
+  --time-badge-text: var(--primary);
 
   --dur-badge-bg: #F1F5F9;
   --dur-badge-text: #475569;
+
+  --picker-hover-bg: #E2E8F0;
 }
 
 [data-theme="dark"] {
@@ -54,20 +56,22 @@
   --pill-unselected-border: #334155;
   --pill-unselected-text: #F8FAFC;
 
-  --time-badge-bg: rgba(56, 189, 248, 0.12);
-  --time-badge-border: rgba(56, 189, 248, 0.3);
-  --time-badge-text: #38BDF8;
+  --time-badge-bg: var(--primary-light);
+  --time-badge-border: var(--primary-border);
+  --time-badge-text: var(--primary);
 
   --dur-badge-bg: rgba(30, 41, 59, 0.8);
   --dur-badge-text: #94A3B8;
+
+  --picker-hover-bg: #334155;
 }
 
-/* 7 Luxury Ambiance Presets */
+/* 7 Reactive Ambiance Presets */
 [data-ambiance="glacier"] {
   --primary: #0284C7;
   --primary-hover: #0369A1;
   --primary-light: rgba(2, 132, 199, 0.12);
-  --primary-border: #BAE6FD;
+  --primary-border: rgba(2, 132, 199, 0.28);
   --primary-glow: rgba(2, 132, 199, 0.25);
   --orb-1: rgba(186, 230, 253, 0.65);
   --orb-2: rgba(191, 219, 254, 0.55);
@@ -76,7 +80,7 @@
   --primary: #059669;
   --primary-hover: #047857;
   --primary-light: rgba(5, 150, 105, 0.12);
-  --primary-border: #A7F3D0;
+  --primary-border: rgba(5, 150, 105, 0.28);
   --primary-glow: rgba(5, 150, 105, 0.25);
   --orb-1: rgba(167, 243, 208, 0.65);
   --orb-2: rgba(209, 250, 229, 0.55);
@@ -85,7 +89,7 @@
   --primary: #7C3AED;
   --primary-hover: #6D28D9;
   --primary-light: rgba(124, 58, 237, 0.12);
-  --primary-border: #DDD6FE;
+  --primary-border: rgba(124, 58, 237, 0.28);
   --primary-glow: rgba(124, 58, 237, 0.25);
   --orb-1: rgba(221, 214, 254, 0.65);
   --orb-2: rgba(237, 233, 254, 0.55);
@@ -94,7 +98,7 @@
   --primary: #E11D48;
   --primary-hover: #BE123C;
   --primary-light: rgba(225, 29, 72, 0.12);
-  --primary-border: #FECDD3;
+  --primary-border: rgba(225, 29, 72, 0.28);
   --primary-glow: rgba(225, 29, 72, 0.25);
   --orb-1: rgba(254, 205, 211, 0.65);
   --orb-2: rgba(255, 228, 230, 0.55);
@@ -103,7 +107,7 @@
   --primary: #D97706;
   --primary-hover: #B45309;
   --primary-light: rgba(217, 119, 6, 0.12);
-  --primary-border: #FDE68A;
+  --primary-border: rgba(217, 119, 6, 0.28);
   --primary-glow: rgba(217, 119, 6, 0.25);
   --orb-1: rgba(253, 230, 138, 0.65);
   --orb-2: rgba(254, 243, 199, 0.55);
@@ -112,7 +116,7 @@
   --primary: #0D9488;
   --primary-hover: #0F766E;
   --primary-light: rgba(13, 148, 136, 0.12);
-  --primary-border: #99F6E8;
+  --primary-border: rgba(13, 148, 136, 0.28);
   --primary-glow: rgba(13, 148, 136, 0.25);
   --orb-1: rgba(153, 246, 228, 0.65);
   --orb-2: rgba(204, 251, 241, 0.55);
@@ -121,7 +125,7 @@
   --primary: #475569;
   --primary-hover: #334155;
   --primary-light: rgba(71, 85, 105, 0.12);
-  --primary-border: #CBD5E1;
+  --primary-border: rgba(71, 85, 105, 0.28);
   --primary-glow: rgba(71, 85, 105, 0.25);
   --orb-1: rgba(203, 213, 225, 0.65);
   --orb-2: rgba(241, 245, 249, 0.55);
@@ -164,13 +168,13 @@ body {
 }
 
 .crystal-btn {
-  background: var(--primary);
-  color: #FFFFFF;
+  background: var(--primary) !important;
+  color: #FFFFFF !important;
   box-shadow: 0 6px 16px -4px var(--primary-glow);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .crystal-btn:hover {
-  background: var(--primary-hover);
+  background: var(--primary-hover) !important;
   transform: translateY(-1px);
   box-shadow: 0 10px 20px -4px var(--primary-glow);
 }
@@ -179,6 +183,13 @@ body {
   background: var(--primary-light);
   color: var(--primary);
   border: 1px solid var(--primary-border);
+}
+
+/* Dynamic Period Badges */
+.theme-period-badge {
+  background: var(--time-badge-bg) !important;
+  border-color: var(--time-badge-border) !important;
+  color: var(--time-badge-text) !important;
 }
 
 .crystal-input {
@@ -195,7 +206,7 @@ body {
   box-shadow: 0 0 0 2px var(--primary), 0 10px 25px -5px var(--primary-glow);
 }
 
-/* Hover-Expandable Ambiance Palette */
+/* Hover-Expandable Palette */
 .ambiance-picker {
   position: relative;
 }
@@ -210,6 +221,17 @@ body {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0) scale(1);
+}
+
+/* Time Picker Items */
+.picker-btn-unselected {
+  background: transparent;
+  color: var(--text-main);
+  transition: all 0.15s ease;
+}
+.picker-btn-unselected:hover {
+  background: var(--picker-hover-bg);
+  color: var(--text-main);
 }
 
 /* Quote Highlight Frame */
